@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::after,
+**::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-clr-red: hsl(0, 78%, 62%);
+  --primary-clr-cyan: hsl(180, 62%, 55%);
+  --primary-clr-orange: hsl(34, 97%, 64%);
+  --primary-clr-blue: hsl(212, 86%, 64%);
+  --neutral-very-dark-blue: hsl(234, 12%, 34%);
+  --neutral-grayish-blue: hsl(229, 6%, 66%);
+  --neutral-lightgray: hsl(0, 0%, 98%);
+  --ff-normal: "Poppins", sans-serif;
+  --fw-200: 200;
+  --fw-400: 400;
+  --fw-600: 600;
+  --fs-normal: 15px;
+  --fs-xs: 14px;
+}
+body {
+  min-height: 100vh;
+  font-family: var(--ff-normal);
+  color: var(--neutral-grayish-blue);
+}
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+.main-title {
+  width: 90%;
+  max-width: 30rem;
+  margin: 4rem auto;
+  text-align: center;
+}
+.title {
+  font-weight: var(--fw-400);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.title span {
+  font-weight: var(--fw-600);
+  color: var(--neutral-very-dark-blue);
+}
+h2 {
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-600);
+  margin: 1rem;
+  color: var(--neutral-very-dark-blue);
+}
+p {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-200);
+  margin-inline: 1rem;
+  color: var(--neutral-very-dark-blue);
+}
+.cards {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.card {
+  width: 100%;
+  height: 200px;
+  box-shadow: 1px 4px 2px 5px var(--neutral-lightgray);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+img {
+  width: 45px;
+  align-self: flex-end;
+  padding: 2rem;
+}
+.card-1 {
+  border-top: 3px solid var(--primary-clr-cyan);
+}
+.card-2 {
+  border-top: 3px solid var(--primary-clr-red);
+}
+.card-3 {
+  border-top: 3px solid var(--primary-clr-orange);
+}
+.card-4 {
+  border-top: 3px solid var(--primary-clr-blue);
+}
+
+@media (min-width: 700px) {
+  .cards {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards {
+    width: 80%;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-template-areas:
+      ". team ." "super team calc" "super karma calc"
+      ". karma .";
+  }
+  .card-1 {
+    grid-area: super;
+  }
+  .card-2 {
+    grid-area: team;
+  }
+  .card-3 {
+    grid-area: karma;
+  }
+  .card-4 {
+    grid-area: calc;
+  }
+}
